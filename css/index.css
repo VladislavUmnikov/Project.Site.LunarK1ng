@@ -1,0 +1,1394 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Viaoda+Libre&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body{
+    font-family: "Source Code Pro", monospace;
+    background: #2c2c2c;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Улучшения для touch-устройств */
+@media (hover: none) and (pointer: coarse) {
+    .btn-menu a, .buy-button, .telegram-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .card, .shop-card {
+        cursor: default;
+    }
+}
+.nav{
+    margin: 0 auto;
+    display: flex;
+    width: 1280px;
+    height: 52px;
+    background-color: rgb(0, 0, 0, 40%);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    border: none;
+    border-radius: 8px;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 1000;
+    transition: all 300ms;
+}
+.btn-menu{
+    text-align: center;
+}
+.logo-link {
+    display: flex;
+    align-items: center;
+    transition: transform 200ms;
+    text-decoration: none;
+}
+
+.logo-link:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.logo-link img {
+    display: block;
+}
+
+.btn-menu a{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(40px);
+    text-decoration: none;
+    padding: 4px 70px;
+    border: none;
+    border-radius: 8px;
+    margin: 0px 20px;
+    transition: all 200ms;
+    user-select: none;
+}
+
+.telegram-link {
+    background: linear-gradient(135deg, #0088cc 0%, #006699 100%);
+    color: white !important;
+    font-weight: 600;
+}
+
+.telegram-link:hover {
+    background: linear-gradient(135deg, #00a0e0 0%, #0088cc 100%);
+    transform: scale(1.05);
+}
+.fon{
+    font-family: "Viaoda Libre", serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 200px;
+    user-select: none;
+    width: 100%;
+    height: 960px;
+    background-image: url('/assects/dector.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.fon1{
+    width: 100%;
+    height: 327px;
+    background: linear-gradient(to bottom, 
+        rgba(9, 2, 58, 0) 0%,
+        #2c2c2c 40%
+    );
+    transform: translateY(-50%);
+    position: absolute;
+    pointer-events: none;
+}
+main{
+    width: 100%;
+    background-color: #2c2c2c;
+    position: relative;
+    overflow-x: hidden;
+}
+.zagolov{
+    font-family: "Viaoda Libre", serif;
+    background-color: #2c2c2c;
+    color: white;
+    text-align: center;
+    font-size: 45px;
+    transform: translateY(50%);
+    background-color: #2c2c2c;
+    user-select: none;
+    padding: 20px;
+    animation: fadeInUp 0.8s ease-out;
+    position: relative;
+    z-index: 1;
+}
+
+.zagolov-desc {
+    font-family: "Source Code Pro", monospace;
+    background: #2c2c2c;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 15px;
+    font-weight: 300;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50%) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(50%);
+    }
+}
+.opic{
+    display: flex;
+    width: 100%;
+    height: 600px;
+    background-color: #2c2c2c;
+    justify-content: space-evenly;
+    align-items: center;
+    transform: translateY(17%);
+    position: relative;
+    z-index: 1;
+}
+.card{
+    width: 450px;
+    height: 250px;
+    background:linear-gradient(to right,
+            #888FA2 0%,
+            #D299A9 17%,
+            #E3DDC7 35%,
+            #94F4E5 50%,
+            #5CDEF6 65%,
+            #78A4F8 83%,
+            #B396D4 100%
+        );
+    box-shadow: 0px 0px 16px 10px rgba(0, 0, 0, 0.4);
+    border: none;
+    border-radius: 40px;
+    text-align: center;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 300ms, box-shadow 300ms;
+    animation: fadeInUp 0.8s ease-out;
+    animation-fill-mode: both;
+}
+
+.card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0px 0px 25px 15px rgba(0, 0, 0, 0.5);
+}
+
+.card h2{
+    font-family: "Source Code Pro", monospace;
+    font-size: 28px;
+    font-weight: 600;
+    user-select: none;
+    margin-bottom: 15px;
+}
+.card p{
+    font-family: "Source Code Pro", monospace;
+    font-size: 56px;
+    font-weight: 700;
+    user-select: none;
+}
+.shop{
+    height: 980px;
+    width: 100%;
+    background-image: url('assects/stars.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #2c2c2c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.shop-zagolov{
+    font-family: "Viaoda Libre", serif;
+    color: white;
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+.shop-subtitle {
+    font-family: "Source Code Pro", monospace;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 10px;
+    font-weight: 300;
+}
+.shop-content{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 50px;
+}
+.shop-card{
+    width: 350px;
+    height: 280px;
+    background: linear-gradient(to right,
+            #888FA2 0%,
+            #D299A9 17%,
+            #E3DDC7 35%,
+            #94F4E5 50%,
+            #5CDEF6 65%,
+            #78A4F8 83%,
+            #B396D4 100%
+        );
+    box-shadow: 0px 0px 16px 10px rgba(0, 0, 0, 0.4);
+    border: none;
+    border-radius: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: transform 200ms;
+}
+.shop-card:hover{
+    transform: scale(1.05);
+}
+.shop-card h3{
+    font-family: "Viaoda Libre", serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+    user-select: none;
+}
+.shop-price{
+    font-family: "Source Code Pro", monospace;
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+    margin: 15px 0;
+    user-select: none;
+}
+.shop-desc{
+    font-family: "Source Code Pro", monospace;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 10px;
+    user-select: none;
+    font-weight: 400;
+}
+.buy-button{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 40px;
+    font-family: "Source Code Pro", monospace;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    transition: all 200ms;
+    user-select: none;
+}
+.buy-button:hover{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+.buy-button:active{
+    transform: scale(0.95);
+}
+
+footer {
+    background: linear-gradient(to top, #1a1a1a 0%, #2c2c2c 100%);
+    padding: 60px 20px 20px;
+    margin-top: 50px;
+    position: relative;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h3 {
+    font-family: "Source Code Pro", monospace;
+    font-size: 24px;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.footer-section h4 {
+    font-family: "Source Code Pro", monospace;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.footer-section p {
+    font-family: "Source Code Pro", monospace;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+.footer-link {
+    display: block;
+    font-family: "Source Code Pro", monospace;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: all 200ms;
+    padding: 5px 0;
+}
+
+.footer-link:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+.telegram-footer {
+    color: #0088cc !important;
+    font-weight: 600;
+}
+
+.telegram-footer:hover {
+    color: #00a0e0 !important;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    font-family: "Source Code Pro", monospace;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+.btn-menu a:hover{
+    background-color: rgba(255, 0, 0, 0.1);
+    backdrop-filter: blur(0px);
+}
+.btn-menu a:active{
+    background-color: rgba(255, 81, 0, 0.2);
+    backdrop-filter: blur(100px);
+}
+.btn-menu a:focus-visible{
+    background-color: red;
+}
+.fon2{
+    width: 100%;
+    height: 327px;
+    background: linear-gradient(to top, 
+        rgba(9, 2, 58, 0) 0%,
+        #2c2c2c 40%
+    );
+    transform: translateY(31%);
+    position: absolute;
+    pointer-events: none;
+    margin: 20px 0px 0px 0px;
+}
+.opic1{
+    background-image: url('/assects/bac.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 1800px;
+    display: flex;
+    margin: 200px 0px 0px 0px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.fon-opic{
+    display: flex;
+    width: 1550px;
+    height: 810px;
+    background-color: rgb(0, 0, 0, 40%);
+    border: none;
+    border-radius: 25px;
+    backdrop-filter: blur(20px);
+}
+.g{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}
+.g1{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}
+.fio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgb(255, 0, 70, 40%);
+    backdrop-filter: blur(10px);
+    width: 95%;
+    height: 95%;
+    border: none;
+    border-radius: 20px;
+    padding: 30px;
+    overflow-y: auto;
+    transition: transform 300ms, box-shadow 300ms;
+}
+
+.fio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 20px 10px rgba(255, 0, 70, 0.5);
+}
+
+.fio-image {
+    margin-bottom: 25px;
+    flex-shrink: 0;
+}
+
+.fio img{
+    width: 180px;
+    height: 180px;
+    border: none;
+    border-radius: 100%;
+    object-fit: cover;
+    box-shadow: 0px 0px 30px 15px rgba(255, 0, 70, 0.3);
+    transition: transform 300ms, box-shadow 300ms;
+    display: block;
+}
+
+.fio:hover img {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 40px 20px rgba(255, 0, 70, 0.5);
+}
+
+.fio-content {
+    width: 100%;
+    text-align: center;
+}
+
+.fio-content h3 {
+    font-family: "Viaoda Libre", serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+.fio-content p {
+    font-family: "Source Code Pro", monospace;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    margin-bottom: 18px;
+    text-align: left;
+    user-select: none;
+}
+
+.fio-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Стилизация скроллбара для fio */
+.fio::-webkit-scrollbar {
+    width: 8px;
+}
+
+.fio::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.fio::-webkit-scrollbar-thumb {
+    background: rgba(255, 0, 70, 0.5);
+    border-radius: 10px;
+}
+
+.fio::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 0, 70, 0.7);
+}
+.ai{
+    background-color: rgb(5, 7, 50, 40%);
+    backdrop-filter: blur(10px);
+    width: 95%;
+    height: 45%;
+    border: none;
+    border-radius: 20px;
+    margin: 25px auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 300ms, box-shadow 300ms;
+}
+
+.ai:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 20px 10px rgba(5, 7, 50, 0.5);
+}
+
+.ai h3 {
+    font-family: "Viaoda Libre", serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 15px;
+    user-select: none;
+}
+
+.ai p {
+    font-family: "Source Code Pro", monospace;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+.telegram-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #0088cc 0%, #006699 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-family: "Source Code Pro", monospace;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 300ms;
+    align-self: flex-start;
+    box-shadow: 0px 4px 15px rgba(0, 136, 204, 0.3);
+}
+
+.telegram-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 20px rgba(0, 136, 204, 0.5);
+    background: linear-gradient(135deg, #00a0e0 0%, #0088cc 100%);
+}
+
+.forum{
+    background-color: rgb(170, 184, 108, 40%);
+    backdrop-filter: blur(10px);
+    width: 95%;
+    height: 45%;
+    border: none;
+    border-radius: 20px;
+    margin: 25px auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 300ms, box-shadow 300ms;
+}
+
+.forum:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 20px 10px rgba(170, 184, 108, 0.5);
+}
+
+.forum h3 {
+    font-family: "Viaoda Libre", serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+.forum ul {
+    list-style: none;
+    padding: 0;
+}
+
+.forum ul li {
+    font-family: "Source Code Pro", monospace;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    user-select: none;
+    line-height: 1.6;
+}
+
+.forum ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #94F4E5;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Адаптивность */
+
+/* Очень большие экраны (1920px+) */
+@media (min-width: 1920px) {
+    .nav {
+        width: 1600px;
+    }
+    
+    .fon-opic {
+        width: 1800px;
+    }
+    
+    .card {
+        width: 500px;
+        height: 280px;
+    }
+}
+
+/* Большие ноутбуки (1400px - 1920px) */
+@media (max-width: 1920px) and (min-width: 1401px) {
+    .nav {
+        width: 95%;
+        max-width: 1600px;
+    }
+    
+    .fon-opic {
+        width: 95%;
+        max-width: 1400px;
+    }
+}
+
+/* Ноутбуки (1200px - 1400px) */
+@media (max-width: 1400px) {
+    .nav {
+        width: 95%;
+    }
+    
+    .fon-opic {
+        width: 95%;
+        max-width: 1200px;
+    }
+    
+    .card {
+        width: 400px;
+        height: 240px;
+    }
+    
+    .shop-card {
+        width: 300px;
+        height: 260px;
+    }
+}
+
+/* Планшеты в альбомной ориентации и маленькие ноутбуки (1024px - 1200px) */
+@media (max-width: 1200px) and (min-width: 1024px) {
+    .shop-content {
+        flex-wrap: wrap;
+        gap: 25px;
+        padding: 0 30px;
+        justify-content: center;
+    }
+    
+    .shop-card {
+        width: calc(50% - 15px);
+        max-width: 400px;
+        min-width: 300px;
+    }
+    
+    .opic {
+        padding: 40px 30px;
+        gap: 25px;
+    }
+    
+    .card {
+        width: calc(33.333% - 20px);
+        min-width: 280px;
+    }
+    
+    .fon-opic {
+        flex-direction: row;
+        height: auto;
+        min-height: 700px;
+        padding: 30px;
+    }
+    
+    .g, .g1 {
+        width: 50%;
+    }
+}
+
+/* Планшеты (768px - 1024px) */
+@media (max-width: 1023px) {
+    .shop-content {
+        flex-direction: column;
+        gap: 30px;
+        padding: 0 30px;
+    }
+    
+    .shop-card {
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    .opic {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 30px;
+        gap: 30px;
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    .fon-opic {
+        flex-direction: column;
+        height: auto;
+        padding: 30px;
+    }
+    
+    .g, .g1 {
+        width: 100%;
+    }
+    
+    .g1 {
+        margin-top: 30px;
+    }
+    
+    .ai, .forum {
+        height: auto;
+        min-height: 200px;
+    }
+    
+    .fio {
+        padding: 25px;
+        height: auto;
+        max-height: 600px;
+    }
+    
+    .fio img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .fio-content h3 {
+        font-size: 24px;
+    }
+    
+    .fio-content p {
+        font-size: 14px;
+    }
+    
+    .nav {
+        width: 98%;
+        padding: 8px;
+    }
+    
+    .btn-menu a {
+        padding: 4px 15px;
+        margin: 2px;
+        font-size: 13px;
+    }
+}
+
+/* Планшеты в портретной ориентации и большие телефоны (481px - 768px) */
+@media (max-width: 768px) {
+    .nav {
+        width: calc(100% - 16px);
+        height: auto;
+        padding: 5px 3px;
+        flex-wrap: wrap;
+        gap: 4px;
+        justify-content: center;
+    }
+    
+    .logo-link {
+        order: -1;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 3px;
+    }
+    
+    .logo-link img {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .btn-menu {
+        flex: 1 1 calc(50% - 4px);
+        min-width: calc(50% - 4px);
+        max-width: calc(50% - 4px);
+    }
+    
+    .btn-menu a {
+        padding: 5px 8px;
+        margin: 0;
+        font-size: 10px;
+        display: block;
+        text-align: center;
+        width: 100%;
+        border-radius: 5px;
+    }
+    
+    .fon {
+        font-size: 100px;
+        height: 550px;
+        background-size: cover;
+    }
+    
+    .zagolov {
+        font-size: 28px;
+        padding: 15px;
+    }
+    
+    .zagolov-desc {
+        font-size: 15px;
+        padding: 0 15px;
+    }
+    
+    .opic {
+        padding: 30px 15px;
+        gap: 25px;
+        height: auto;
+    }
+    
+    .card {
+        height: 220px;
+        padding: 25px 20px;
+    }
+    
+    .card h2 {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+    
+    .card p {
+        font-size: 38px;
+    }
+    
+    .shop {
+        padding: 40px 15px;
+        height: auto;
+        min-height: 800px;
+    }
+    
+    .shop-zagolov {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+    
+    .shop-subtitle {
+        font-size: 15px;
+        padding: 0 15px;
+    }
+    
+    .shop-content {
+        padding: 0 15px;
+        gap: 25px;
+    }
+    
+    .shop-card {
+        width: 100%;
+        height: auto;
+        min-height: 280px;
+        padding: 25px;
+    }
+    
+    .shop-card h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+    
+    .shop-price {
+        font-size: 32px;
+        margin: 12px 0;
+    }
+    
+    .shop-desc {
+        font-size: 16px;
+    }
+    
+    .buy-button {
+        padding: 10px 30px;
+        font-size: 16px;
+        margin-top: 15px;
+    }
+    
+    .opic1 {
+        height: auto;
+        padding: 30px 15px;
+        min-height: auto;
+    }
+    
+    .fon-opic {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .fio {
+        padding: 20px;
+        max-height: 500px;
+    }
+    
+    .fio-image {
+        margin-bottom: 20px;
+    }
+    
+    .fio img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .fio-content h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .fio-content p {
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+    
+    .ai, .forum {
+        padding: 20px;
+        margin: 15px auto;
+    }
+    
+    .ai h3, .forum h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .ai p, .forum ul li {
+        font-size: 14px;
+    }
+    
+    .telegram-btn {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        padding: 0 15px;
+    }
+    
+    .footer-section {
+        min-width: 100%;
+    }
+    
+    .footer-section h3, .footer-section h4 {
+        font-size: 18px;
+    }
+    
+    .footer-section p, .footer-link {
+        font-size: 13px;
+    }
+}
+
+/* Телефоны (360px - 480px) */
+@media (max-width: 480px) {
+    .nav {
+        width: calc(100% - 16px);
+        height: auto;
+        padding: 4px 3px;
+        top: 6px;
+        border-radius: 5px;
+        flex-wrap: wrap;
+        gap: 3px;
+        justify-content: center;
+    }
+    
+    .logo-link {
+        order: -1;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 2px;
+    }
+    
+    .logo-link img {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .btn-menu {
+        flex: 1 1 calc(50% - 3px);
+        min-width: calc(50% - 3px);
+        max-width: calc(50% - 3px);
+    }
+    
+    .btn-menu a {
+        padding: 4px 6px;
+        margin: 0;
+        font-size: 9px;
+        width: 100%;
+        text-align: center;
+        border-radius: 5px;
+    }
+    
+    .fon {
+        font-size: 70px;
+        height: 450px;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .zagolov {
+        font-size: 22px;
+        padding: 12px;
+    }
+    
+    .zagolov-desc {
+        font-size: 13px;
+        padding: 0 12px;
+    }
+    
+    .opic {
+        padding: 25px 10px;
+        gap: 20px;
+        height: auto;
+    }
+    
+    .card {
+        height: 180px;
+        padding: 20px 15px;
+        border-radius: 30px;
+    }
+    
+    .card h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .card p {
+        font-size: 32px;
+    }
+    
+    .shop {
+        padding: 30px 10px;
+        min-height: 700px;
+    }
+    
+    .shop-zagolov {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .shop-subtitle {
+        font-size: 13px;
+        padding: 0 10px;
+    }
+    
+    .shop-content {
+        padding: 0 10px;
+        gap: 20px;
+    }
+    
+    .shop-card {
+        height: auto;
+        min-height: 240px;
+        padding: 20px;
+        border-radius: 30px;
+    }
+    
+    .shop-card h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .shop-price {
+        font-size: 28px;
+        margin: 10px 0;
+    }
+    
+    .shop-desc {
+        font-size: 14px;
+    }
+    
+    .buy-button {
+        padding: 8px 25px;
+        font-size: 14px;
+        margin-top: 12px;
+    }
+    
+    .opic1 {
+        padding: 20px 10px;
+    }
+    
+    .fon-opic {
+        padding: 15px;
+        border-radius: 20px;
+    }
+    
+    .fio {
+        padding: 15px;
+        max-height: 450px;
+        border-radius: 15px;
+    }
+    
+    .fio img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .fio-content h3 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    
+    .fio-content p {
+        font-size: 12px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+    
+    .ai, .forum {
+        padding: 15px;
+        margin: 12px auto;
+        border-radius: 15px;
+    }
+    
+    .ai h3, .forum h3 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    
+    .ai p, .forum ul li {
+        font-size: 13px;
+    }
+    
+    .telegram-btn {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+    
+    .footer-content {
+        gap: 25px;
+        padding: 0 10px;
+    }
+    
+    .footer-section h3, .footer-section h4 {
+        font-size: 16px;
+    }
+    
+    .footer-section p, .footer-link {
+        font-size: 12px;
+    }
+    
+    .footer-bottom p {
+        font-size: 11px;
+    }
+}
+
+/* Очень маленькие телефоны (до 360px) */
+@media (max-width: 360px) {
+    .nav {
+        width: calc(100% - 12px);
+        padding: 3px 2px;
+        top: 5px;
+        gap: 2px;
+        border-radius: 4px;
+    }
+    
+    .logo-link {
+        margin-bottom: 1px;
+    }
+    
+    .logo-link img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .btn-menu {
+        flex: 1 1 calc(50% - 2px);
+        min-width: calc(50% - 2px);
+        max-width: calc(50% - 2px);
+    }
+    
+    .btn-menu a {
+        padding: 3px 4px;
+        font-size: 8px;
+        border-radius: 4px;
+    }
+    
+    .fon {
+        font-size: 60px;
+        height: 400px;
+    }
+    
+    .zagolov {
+        font-size: 20px;
+        padding: 12px;
+    }
+    
+    .zagolov-desc {
+        font-size: 12px;
+    }
+    
+    .opic {
+        padding: 25px 12px;
+        height: auto;
+    }
+    
+    .card {
+        height: 160px;
+        padding: 15px;
+    }
+    
+    .card h2 {
+        font-size: 16px;
+    }
+    
+    .card p {
+        font-size: 28px;
+    }
+    
+    .shop-zagolov {
+        font-size: 20px;
+    }
+    
+    .shop-card {
+        min-height: 220px;
+        padding: 15px;
+    }
+    
+    .shop-card h3 {
+        font-size: 18px;
+    }
+    
+    .shop-price {
+        font-size: 24px;
+    }
+    
+    .fio img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .fio-content h3 {
+        font-size: 16px;
+    }
+    
+    .fio-content p {
+        font-size: 11px;
+    }
+    
+    .btn-menu a {
+        font-size: 10px;
+        padding: 5px 8px;
+    }
+}
+
+/* Ориентация экрана */
+@media (orientation: landscape) and (max-height: 500px) {
+    .fon {
+        height: 100vh;
+        font-size: 80px;
+    }
+    
+    .nav {
+        top: 5px;
+        padding: 5px;
+    }
+    
+    .btn-menu a {
+        padding: 4px 12px;
+        font-size: 11px;
+    }
+    
+    .opic {
+        padding: 20px 15px;
+    }
+    
+    .card {
+        height: 150px;
+        padding: 15px;
+    }
+    
+    .card h2 {
+        font-size: 16px;
+    }
+    
+    .card p {
+        font-size: 28px;
+    }
+}
+
+/* Улучшения для печати */
+@media print {
+    .nav, .footer {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .card, .shop-card, .fio, .ai, .forum {
+        background: white;
+        color: black;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+}
+
