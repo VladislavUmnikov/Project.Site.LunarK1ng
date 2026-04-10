@@ -1,7 +1,3 @@
-# Welcome to GitHub Desktop!
+Добро пожаловать в Project LunarK1ng. Этот проект сайта LunarK1ng пока ещё в бете.
 
-This is your README. READMEs are where you can communicate what your project is and how to use it.
-
-Write your name on line 6, save it, and then head back to GitHub Desktop.
-
-hello world
+вот ссылка https://vladislavumnikov.github.io/Project.Site.LunarK1ng/
