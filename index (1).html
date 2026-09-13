@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>LunarK1ng — фотограф, видеомонтажёр и Telegram-канал</title>
+    <meta name="description" content="LunarK1ng — фотограф и видеомонтажёр. Эксклюзивный контент и премиум-подписки в Telegram-канале.">
+    <link rel="shortcut icon" href="./assects/logo.png" type="image/png">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js" defer></script>
+</head>
+<body>
+    <div id="cosmos" aria-hidden="true">
+        <canvas id="starfield"></canvas>
+        <div class="nebula nebula--gold"></div>
+        <div class="nebula nebula--violet"></div>
+        <div class="nebula nebula--cyan"></div>
+    </div>
+
+    <nav>
+        <div class="nav">
+            <a href="index.html" class="logo-link">
+                <img src="./assects/logo.png" alt="LunarK1ng">
+                <span>LunarK1ng</span>
+            </a>
+            <div class="nav-links">
+                <div class="btn-menu"><a href="#about">Обо мне</a></div>
+                <div class="btn-menu"><a href="#skills">Навыки</a></div>
+                <div class="btn-menu"><a href="#channel">Канал</a></div>
+                <div class="btn-menu"><a href="#shop">Магазин</a></div>
+                <div class="btn-menu"><a href="https://t.me/tg_lunark1ng" target="_blank" rel="noopener" class="telegram-link">Telegram</a></div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="hero" id="hero">
+            <div class="shooting-star" aria-hidden="true"></div>
+            <img src="./assects/logo.png" alt="" class="hero-mark" aria-hidden="true">
+            <h1>LunarK1ng</h1>
+            <p class="hero-role">фотограф<span class="sep">·</span>видеомонтажёр<span class="sep">·</span>автор Telegram-канала</p>
+            <p class="hero-desc">Ловлю свет, ритм и настроение — и собираю их в кадры, которые запоминаются. Часть работ и эксклюзивный контент — в канале.</p>
+            <div class="hero-cta">
+                <a href="https://t.me/tg_lunark1ng" target="_blank" rel="noopener" class="btn btn-primary">Подписаться в Telegram</a>
+                <a href="#shop" class="btn btn-ghost">Смотреть тарифы</a>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="stats-panel">
+                <div class="stat">
+                    <p class="stat-number" data-target="56">0</p>
+                    <p class="stat-label">подписчиков</p>
+                </div>
+                <div class="stat">
+                    <p class="stat-number" data-target="163">0</p>
+                    <p class="stat-label">фотографий</p>
+                </div>
+                <div class="stat">
+                    <p class="stat-number" data-target="3">0</p>
+                    <p class="stat-label">видео</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="about-grid">
+                <div class="about-portrait">
+                    <img src="./assects/photo.jpg" alt="LunarK1ng">
+                </div>
+                <div class="about-text">
+                    <h3>О себе</h3>
+                    <p>Я — фотограф и видеомонтажёр. Для меня кадр — это не просто картинка, а способ передать эмоцию, атмосферу и характер момента. Мне важно видеть детали, ловить нужную секунду и собирать из них истории, которые цепляют.</p>
+                    <p>В фотографии я работаю со светом, композицией и настроением: портреты, атмосферные сцены, кадры, которые выделяются среди привычного. В монтаже — превращаю сырой материал в динамичный продукт: выстраиваю ритм, цветокоррекцию, переходы, музыку — так, чтобы видео смотрелось на одном дыхании.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <div class="section-head">
+                <h2>Навыки</h2>
+                <p>Пять точек, из которых собирается каждая работа</p>
+            </div>
+            <div class="constellation">
+                <svg viewBox="0 0 1000 420" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M 80 25 L 560 20 L 320 175 L 800 195 L 140 350"></path>
+                </svg>
+                <div class="skill skill--1">
+                    <span class="skill-star" aria-hidden="true"></span>
+                    <h3>Фотография</h3>
+                    <p>Портрет, свет и атмосфера — кадр, который держит взгляд.</p>
+                </div>
+                <div class="skill skill--2">
+                    <span class="skill-star" aria-hidden="true"></span>
+                    <h3>Видеомонтаж</h3>
+                    <p>Ритм, склейка и драматургия — видео на одном дыхании.</p>
+                </div>
+                <div class="skill skill--3">
+                    <span class="skill-star" aria-hidden="true"></span>
+                    <h3>Цветокоррекция</h3>
+                    <p>Настроение кадра через цвет и тон.</p>
+                </div>
+                <div class="skill skill--4">
+                    <span class="skill-star" aria-hidden="true"></span>
+                    <h3>Композиция и свет</h3>
+                    <p>Выстраиваю кадр как сцену, а не случайный снимок.</p>
+                </div>
+                <div class="skill skill--5">
+                    <span class="skill-star" aria-hidden="true"></span>
+                    <h3>Сторителлинг</h3>
+                    <p>Истории, которые запоминаются — не просто картинка.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="channel">
+            <div class="channel-grid">
+                <div class="panel panel-channel">
+                    <h3>О канале</h3>
+                    <p>LunarK1ng — Telegram-канал с эксклюзивным контентом: фото, видео и материалы, которых нет в открытом доступе. Регулярные обновления и качество без компромиссов.</p>
+                    <a href="https://t.me/tg_lunark1ng" target="_blank" rel="noopener" class="btn btn-primary">Присоединиться</a>
+                </div>
+                <div class="panel panel-perks">
+                    <h3>Преимущества</h3>
+                    <ul class="perks">
+                        <li>Эксклюзивный контент</li>
+                        <li>Регулярные обновления</li>
+                        <li>Высокое качество</li>
+                        <li>Премиум-материалы</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="shop">
+            <div class="section-head">
+                <h2>Магазин</h2>
+                <p>Выберите тариф для доступа к эксклюзивному контенту</p>
+            </div>
+            <div class="shop-grid">
+                <div class="plan">
+                    <p class="plan-name">Премиум подписка</p>
+                    <p class="plan-desc">Доступ ко всем материалам канала</p>
+                    <p class="plan-price">299₽</p>
+                    <a href="payment.html?product=Премиум подписка&price=299₽" class="btn btn-ghost">Купить</a>
+                </div>
+                <div class="plan plan--popular">
+                    <p class="plan-name">Эксклюзивный контент</p>
+                    <p class="plan-desc">Уникальные материалы вне общего доступа</p>
+                    <p class="plan-price">499₽</p>
+                    <a href="payment.html?product=Эксклюзивный контент&price=499₽" class="btn btn-primary">Купить</a>
+                </div>
+                <div class="plan">
+                    <p class="plan-name">VIP доступ</p>
+                    <p class="plan-desc">Все возможности канала без ограничений</p>
+                    <p class="plan-price">999₽</p>
+                    <a href="payment.html?product=VIP доступ&price=999₽" class="btn btn-ghost">Купить</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-divider"></div>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">
+                    <img src="./assects/logo.png" alt="LunarK1ng">
+                    <span>LunarK1ng</span>
+                </div>
+                <p class="footer-tag">Фотограф и видеомонтажёр. Эксклюзивный контент — в Telegram-канале.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Разделы</h4>
+                <a href="#about">Обо мне</a>
+                <a href="#skills">Навыки</a>
+                <a href="#channel">Канал</a>
+                <a href="#shop">Магазин</a>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <a href="https://t.me/tg_lunark1ng" target="_blank" rel="noopener">@tg_lunark1ng</a>
+            </div>
+        </div>
+        <p class="footer-bottom">© 2026 LunarK1ng. Все права защищены.</p>
+    </footer>
+</body>
+</html>

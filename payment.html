@@ -3,94 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оплата - LunarK1ng</title>
-    <link rel="shortcut icon" href="./assects/logo.png" type="icon/png">
+    <title>Оплата — LunarK1ng</title>
+    <link rel="shortcut icon" href="./assects/logo.png" type="image/png">
+    <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/payment.css">
     <script src="./js/payment.js" defer></script>
 </head>
 <body>
+    <div id="cosmos" aria-hidden="true">
+        <canvas id="starfield"></canvas>
+        <div class="nebula nebula--gold"></div>
+        <div class="nebula nebula--violet"></div>
+    </div>
+
     <nav>
         <div class="nav">
-            <img src="./assects/logo.png" width="58px" height="58px">
-            <div class="btn-menu"><a href="index.html">Главное</a></div>
-            <div class="btn-menu"><a href="index.html#description">Описание</a></div>
-            <div class="btn-menu"><a href="index.html#shop">Магазин</a></div>
-            <div class="btn-menu"><a href="https://t.me/tg_lunark1ng" target="_blank" class="telegram-link">Telegram</a></div>
+            <a href="index.html" class="logo-link">
+                <img src="./assects/logo.png" alt="LunarK1ng">
+                <span>LunarK1ng</span>
+            </a>
+            <div class="nav-links">
+                <div class="btn-menu"><a href="index.html">Главная</a></div>
+                <div class="btn-menu"><a href="index.html#shop">Магазин</a></div>
+                <div class="btn-menu"><a href="https://t.me/tg_lunark1ng" target="_blank" rel="noopener" class="telegram-link">Telegram</a></div>
+            </div>
         </div>
     </nav>
 
     <main>
-        <div class="payment-container">
-            <div class="payment-header">
+        <section class="pay-section">
+            <div class="pay-head">
                 <h1>Оплата</h1>
+                <p>Демонстрационная форма — реальное списание не выполняется.</p>
             </div>
 
-            <div class="payment-content">
-                <div class="order-summary">
-                    <h2>Детали заказа</h2>
-                    <div class="summary-item">
-                        <span class="summary-label">Товар:</span>
-                        <span class="summary-value" id="product-name">Премиум подписка</span>
+            <div class="pay-grid">
+                <div class="panel order-summary">
+                    <h3>Детали заказа</h3>
+                    <div class="summary-row">
+                        <span>Товар</span>
+                        <span id="product-name">Премиум подписка</span>
                     </div>
-                    <div class="summary-item">
-                        <span class="summary-label">Сумма:</span>
-                        <span class="summary-value" id="product-price">299₽</span>
+                    <div class="summary-row">
+                        <span>Сумма</span>
+                        <span id="product-price">299₽</span>
                     </div>
-                    <div class="summary-total">
-                        <span class="summary-label">Итого:</span>
-                        <span class="summary-value" id="total-price">299₽</span>
+                    <div class="summary-row summary-total">
+                        <span>Итого</span>
+                        <span id="total-price">299₽</span>
                     </div>
                 </div>
 
-                <div class="payment-form-container">
-                    <form class="payment-form" id="payment-form">
-                        <h2>Данные карты</h2>
-                        
+                <div class="panel pay-form-panel">
+                    <form class="pay-form" id="payment-form" novalidate>
+                        <h3>Данные карты</h3>
+
                         <div class="bank-card">
-                            <div class="card-chip"></div>
-                            <div class="card-logo">VISA</div>
-                            
-                            <div class="card-number-field">
-                                <div class="card-number-display" id="card-number-display">**** **** **** ****</div>
-                                <input type="text" id="card-number" name="card-number" maxlength="19" required>
+                            <div class="bank-card-top">
+                                <span class="bank-card-chip" aria-hidden="true"></span>
+                                <span class="bank-card-brand">✦ LUNARK1NG PAY</span>
                             </div>
-                            
-                            <div class="card-holder-field">
-                                <label for="cardholder">ИМЯ ДЕРЖАТЕЛЯ</label>
-                                <input type="text" id="cardholder" name="cardholder" placeholder="IVAN IVANOV" required>
-                            </div>
-                            
-                            <div class="card-bottom">
-                                <div class="card-expiry-field">
-                                    <label for="expiry">СРОК ДЕЙСТВИЯ</label>
-                                    <input type="text" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5" required>
+                            <div class="bank-card-number" id="card-number-display">•••• •••• •••• ••••</div>
+                            <div class="bank-card-bottom">
+                                <div>
+                                    <span class="bank-card-label">Держатель</span>
+                                    <span class="bank-card-value" id="card-holder-display">IVAN IVANOV</span>
                                 </div>
-                                <div class="card-cvv-field">
-                                    <label for="cvv">CVV</label>
-                                    <input type="text" id="cvv" name="cvv" placeholder="000" maxlength="3" required>
+                                <div>
+                                    <span class="bank-card-label">Срок</span>
+                                    <span class="bank-card-value" id="card-expiry-display">MM/YY</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="field">
+                            <label for="card-number">Номер карты</label>
+                            <input type="text" inputmode="numeric" id="card-number" name="card-number" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="cardholder">Имя держателя</label>
+                            <input type="text" id="cardholder" name="cardholder" placeholder="IVAN IVANOV" required>
+                        </div>
+
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="expiry">Срок действия</label>
+                                <input type="text" inputmode="numeric" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5" required>
+                            </div>
+                            <div class="field">
+                                <label for="cvv">CVV</label>
+                                <input type="text" inputmode="numeric" id="cvv" name="cvv" placeholder="000" maxlength="3" required>
+                            </div>
+                        </div>
+
+                        <div class="field">
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" placeholder="example@mail.com" required>
                         </div>
 
-                        <button type="submit" class="pay-button">
-                            <span>Оплатить</span>
-                        </button>
+                        <button type="submit" class="btn btn-primary pay-submit">Оплатить</button>
                     </form>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 LunarK1ng. Все права защищены.</p>
-        </div>
+        <div class="footer-divider"></div>
+        <p class="footer-bottom" style="text-align:center;">© 2026 LunarK1ng. Все права защищены.</p>
     </footer>
 </body>
 </html>
-
