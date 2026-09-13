@@ -1,152 +1,78 @@
-// Форматирование номера карты
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const cardNumberInput = document.getElementById('card-number');
+    const cardholderInput = document.getElementById('cardholder');
     const expiryInput = document.getElementById('expiry');
     const cvvInput = document.getElementById('cvv');
-    const cardholderInput = document.getElementById('cardholder');
 
-    // Форматирование номера карты с отображением звездочек
     const cardNumberDisplay = document.getElementById('card-number-display');
-    
-    if (cardNumberInput && cardNumberDisplay) {
-        // Инициализация - показываем звездочки
-        const updateCardDisplay = () => {
-            let value = cardNumberInput.value.replace(/\s/g, '');
-            let displayHTML = '';
-            
-            if (value.length === 0) {
-                displayHTML = '<span style="opacity: 0.5;">**** **** **** ****</span>';
-            } else {
-                // Заменяем звездочки на введенные цифры
-                let formatted = '';
-                for (let i = 0; i < 16; i++) {
-                    if (i < value.length) {
-                        formatted += value[i];
-                    } else {
-                        formatted += '*';
-                    }
-                    // Добавляем пробел после каждых 4 символов
-                    if ((i + 1) % 4 === 0 && i < 15) {
-                        formatted += ' ';
-                    }
-                }
-                
-                // Создаем HTML с разными стилями для цифр и звездочек
-                displayHTML = formatted.split('').map(char => {
-                    if (char === '*') {
-                        return '<span style="opacity: 0.5;">*</span>';
-                    } else if (char === ' ') {
-                        return ' ';
-                    } else {
-                        return char;
-                    }
-                }).join('');
-            }
-            
-            cardNumberDisplay.innerHTML = displayHTML;
-        };
-        
-        cardNumberInput.addEventListener('input', function(e) {
-            // Только цифры
-            let value = e.target.value.replace(/\D/g, '').substring(0, 16);
-            e.target.value = value;
-            
-            // Форматируем для сохранения (с пробелами)
-            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
-            
-            // Обновляем визуальное отображение
-            updateCardDisplay();
-        });
-        
-        cardNumberInput.addEventListener('focus', function() {
-            cardNumberDisplay.style.opacity = '1';
-        });
-        
-        cardNumberInput.addEventListener('blur', function() {
-            if (cardNumberInput.value.length === 0) {
-                cardNumberDisplay.textContent = '**** **** **** ****';
-            }
-        });
-        
-        // Инициализация при загрузке
-        updateCardDisplay();
-    }
+    const cardHolderDisplay = document.getElementById('card-holder-display');
+    const cardExpiryDisplay = document.getElementById('card-expiry-display');
 
-    // Форматирование срока действия (MM/YY)
-    if (expiryInput) {
-        expiryInput.addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length >= 2) {
-                value = value.substring(0, 2) + '/' + value.substring(2, 4);
-            }
-            e.target.value = value;
+    // Номер карты: только цифры, живое отображение на визуальной карте
+    if (cardNumberInput) {
+        cardNumberInput.addEventListener('input', (e) => {
+            const digits = e.target.value.replace(/\D/g, '').substring(0, 16);
+            e.target.value = digits.match(/.{1,4}/g)?.join(' ') || digits;
+
+            const padded = digits.padEnd(16, '•');
+            cardNumberDisplay.textContent = padded.match(/.{1,4}/g).join(' ');
         });
     }
 
-    // Только цифры для CVV
-    if (cvvInput) {
-        cvvInput.addEventListener('input', function(e) {
-            e.target.value = e.target.value.replace(/\D/g, '');
-        });
-    }
-
-    // Только буквы для имени держателя карты
+    // Держатель: только буквы, верхний регистр, отражается на карте
     if (cardholderInput) {
-        cardholderInput.addEventListener('input', function(e) {
+        cardholderInput.addEventListener('input', (e) => {
             e.target.value = e.target.value.toUpperCase().replace(/[^A-ZА-Я\s]/g, '');
+            cardHolderDisplay.textContent = e.target.value || 'IVAN IVANOV';
         });
     }
 
-    // Получение параметров из URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const productName = urlParams.get('product') || 'Премиум подписка';
-    const productPrice = urlParams.get('price') || '299₽';
+    // Срок действия MM/YY
+    if (expiryInput) {
+        expiryInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '').substring(0, 4);
+            if (value.length >= 3) value = value.substring(0, 2) + '/' + value.substring(2);
+            e.target.value = value;
+            cardExpiryDisplay.textContent = value || 'MM/YY';
+        });
+    }
 
-    // Обновление информации о заказе
-    const productNameElement = document.getElementById('product-name');
-    const productPriceElement = document.getElementById('product-price');
-    const totalPriceElement = document.getElementById('total-price');
+    // CVV: только цифры
+    if (cvvInput) {
+        cvvInput.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/\D/g, '').substring(0, 3);
+        });
+    }
 
-    if (productNameElement) productNameElement.textContent = productName;
-    if (productPriceElement) productPriceElement.textContent = productPrice;
-    if (totalPriceElement) totalPriceElement.textContent = productPrice;
+    // Параметры товара из URL
+    const params = new URLSearchParams(window.location.search);
+    const productName = params.get('product') || 'Премиум подписка';
+    const productPrice = params.get('price') || '299₽';
 
-    // Обработка формы оплаты
-    const paymentForm = document.getElementById('payment-form');
-    if (paymentForm) {
-        paymentForm.addEventListener('submit', function(e) {
+    const nameEl = document.getElementById('product-name');
+    const priceEl = document.getElementById('product-price');
+    const totalEl = document.getElementById('total-price');
+    if (nameEl) nameEl.textContent = productName;
+    if (priceEl) priceEl.textContent = productPrice;
+    if (totalEl) totalEl.textContent = productPrice;
+
+    // Отправка формы — демо-режим, никакие данные никуда не уходят
+    const form = document.getElementById('payment-form');
+    if (form) {
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            // Валидация формы
-            const cardholder = document.getElementById('cardholder').value.trim();
-            const cardNumber = document.getElementById('card-number').value.replace(/\s/g, '');
-            const expiry = document.getElementById('expiry').value;
-            const cvv = document.getElementById('cvv').value;
-            const email = document.getElementById('email').value.trim();
 
-            // Простая валидация
-            if (cardNumber.length < 16) {
-                alert('Пожалуйста, введите корректный номер карты');
-                return;
-            }
+            const cardNumber = cardNumberInput.value.replace(/\s/g, '');
+            const expiry = expiryInput.value;
+            const cvv = cvvInput.value;
 
-            if (expiry.length < 5) {
-                alert('Пожалуйста, введите корректный срок действия карты');
-                return;
-            }
+            if (cardNumber.length < 16) { alert('Введите корректный номер карты'); return; }
+            if (expiry.length < 5) { alert('Введите корректный срок действия карты'); return; }
+            if (cvv.length < 3) { alert('Введите корректный CVV-код'); return; }
 
-            if (cvv.length < 3) {
-                alert('Пожалуйста, введите корректный CVV код');
-                return;
-            }
-
-            // Здесь должна быть интеграция с платежной системой
-            // Пока просто показываем сообщение
-            alert('Оплата обрабатывается...\n\nВ реальном проекте здесь будет интеграция с платежным шлюзом (например, Stripe, PayPal, ЮKassa и т.д.)');
-            
-            // Можно добавить редирект на страницу успеха
-            // window.location.href = 'success.html';
+            // Здесь должна быть интеграция с реальным платёжным шлюзом
+            // (например, ЮKassa, CloudPayments, Stripe и т.д.)
+            alert('Это демо-форма оплаты.\nВ рабочем проекте здесь будет интеграция с платёжным шлюзом.');
         });
     }
 });
-
